@@ -39,19 +39,8 @@
     [self.drawerController setMaximumRightDrawerWidth:200.0];
     [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
     [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
-    
+    [self.drawerController setDrawerVisualStateBlock:[MMDrawerVisualState swingingDoorVisualStateBlock]];
 
-    [self.drawerController
-     setDrawerVisualStateBlock:^(MMDrawerController *drawerController, MMDrawerSide drawerSide, CGFloat percentVisible) {
-         UIViewController * sideDrawerViewController;
-         if(drawerSide == MMDrawerSideLeft){
-             sideDrawerViewController = drawerController.leftDrawerViewController;
-         }
-         else if(drawerSide == MMDrawerSideRight){
-             sideDrawerViewController = drawerController.rightDrawerViewController;
-         }
-         [sideDrawerViewController.view setAlpha:percentVisible];
-    }];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window setRootViewController:self.drawerController];
