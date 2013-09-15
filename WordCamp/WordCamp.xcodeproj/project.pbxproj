@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC551C4D17E4FAC300950A88 /* WordCampConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = DC551C4C17E4FAC300950A88 /* WordCampConnection.m */; };
 		DCDE255417E4DDA500E028FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDE255317E4DDA500E028FC /* Foundation.framework */; };
 		DCDE255617E4DDA500E028FC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDE255517E4DDA500E028FC /* CoreGraphics.framework */; };
 		DCDE255817E4DDA500E028FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDE255717E4DDA500E028FC /* UIKit.framework */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC551C4B17E4FAC300950A88 /* WordCampConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordCampConnection.h; sourceTree = "<group>"; };
+		DC551C4C17E4FAC300950A88 /* WordCampConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordCampConnection.m; sourceTree = "<group>"; };
 		DCDE255017E4DDA500E028FC /* WordCamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordCamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCDE255317E4DDA500E028FC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DCDE255517E4DDA500E028FC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -81,6 +84,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC551C4A17E4FAA400950A88 /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				DC551C4B17E4FAC300950A88 /* WordCampConnection.h */,
+				DC551C4C17E4FAC300950A88 /* WordCampConnection.m */,
+			);
+			name = Connection;
+			sourceTree = "<group>";
+		};
 		DCDE254717E4DDA500E028FC = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +127,7 @@
 		DCDE255B17E4DDA500E028FC /* WordCamp */ = {
 			isa = PBXGroup;
 			children = (
+				DC551C4A17E4FAA400950A88 /* Connection */,
 				DCDE256417E4DDA500E028FC /* WordCampAppDelegate.h */,
 				DCDE256517E4DDA500E028FC /* WordCampAppDelegate.m */,
 				DCDE256A17E4DDA500E028FC /* Images.xcassets */,
@@ -249,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC551C4D17E4FAC300950A88 /* WordCampConnection.m in Sources */,
 				DCDE256217E4DDA500E028FC /* main.m in Sources */,
 				DCDE256917E4DDA500E028FC /* WordCamp.xcdatamodeld in Sources */,
 				DCDE256617E4DDA500E028FC /* WordCampAppDelegate.m in Sources */,
@@ -454,6 +468,7 @@
 				DCDE258417E4DDA500E028FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DCDE258517E4DDA500E028FC /* Build configuration list for PBXNativeTarget "WordCampTests" */ = {
 			isa = XCConfigurationList;
@@ -462,6 +477,7 @@
 				DCDE258717E4DDA500E028FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
