@@ -8,6 +8,12 @@
 
 #import "WordCampAppDelegate.h"
 
+#import "MMDrawerController.h"
+#import "MMDrawerVisualState.h"
+
+#import "WordCampMainViewController.h"
+#import "WordCampSideDrawer.h"
+
 @implementation WordCampAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -18,6 +24,39 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+
+    WordCampSideDrawer * leftSideDrawerViewController = [[WordCampSideDrawer alloc] init];
+    
+    WordCampMainViewController * centerViewController = [[WordCampMainViewController alloc] init];
+    
+    UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:centerViewController];
+    [navigationController setRestorationIdentifier:@"MMExampleCenterNavigationControllerRestorationKey"];
+    
+    self.drawerController = [[MMDrawerController alloc]
+                             initWithCenterViewController:navigationController
+                             leftDrawerViewController:leftSideDrawerViewController];
+    [self.drawerController setRestorationIdentifier:@"MMDrawer"];
+    [self.drawerController setMaximumRightDrawerWidth:200.0];
+    [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+    [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    
+
+    [self.drawerController
+     setDrawerVisualStateBlock:^(MMDrawerController *drawerController, MMDrawerSide drawerSide, CGFloat percentVisible) {
+         UIViewController * sideDrawerViewController;
+         if(drawerSide == MMDrawerSideLeft){
+             sideDrawerViewController = drawerController.leftDrawerViewController;
+         }
+         else if(drawerSide == MMDrawerSideRight){
+             sideDrawerViewController = drawerController.rightDrawerViewController;
+         }
+         [sideDrawerViewController.view setAlpha:percentVisible];
+    }];
+
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.window setRootViewController:self.drawerController];
+
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
