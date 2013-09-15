@@ -35,6 +35,7 @@
     </entity>
     <entity name="WordCamps" representedClassName="WordCamps" syncable="YES">
         <attribute name="site_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sessions" inverseName="wordcamp" inverseEntity="Sessions" syncable="YES"/>
         <relationship name="sponsors" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sponsors" inverseName="wordcamp" inverseEntity="Sponsors" syncable="YES"/>

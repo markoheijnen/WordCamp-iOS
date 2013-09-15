@@ -13,6 +13,7 @@
 @interface WordCamps : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * site_id;
+@property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) NSSet *sponsors;
 @property (nonatomic, retain) NSSet *sessions;

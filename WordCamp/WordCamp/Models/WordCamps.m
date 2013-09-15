@@ -12,6 +12,7 @@
 @implementation WordCamps
 
 @dynamic site_id;
+@dynamic title;
 @dynamic url;
 @dynamic sponsors;
 @dynamic sessions;
