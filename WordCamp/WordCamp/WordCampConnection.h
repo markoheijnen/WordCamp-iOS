@@ -10,8 +10,10 @@
 
 @interface WordCampConnection : NSObject
 
++(void)sync;
 
 +(void)loadWordCamps;
-+(void)saveWordCamps:(NSDictionary *)json;
+
++ (id)getSingleObject:(NSString*)model withUid:(int)uid;
 
 @end

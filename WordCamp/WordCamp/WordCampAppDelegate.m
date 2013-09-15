@@ -11,6 +11,8 @@
 #import "MMDrawerController.h"
 #import "MMDrawerVisualState.h"
 
+#import "WordCampConnection.h"
+
 #import "WordCampMainViewController.h"
 #import "WordCampSideDrawer.h"
 
@@ -43,6 +45,8 @@
 
     [self.window setRootViewController:self.drawerController];
 
+    [WordCampConnection sync];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
