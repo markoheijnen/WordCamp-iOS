@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12E55" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Sessions" syncable="YES">
+        <attribute name="attribute" optional="YES" syncable="YES"/>
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="datetime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="post_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="sessionsToSpeakers" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Speakers" inverseName="speakersToSession" inverseEntity="Speakers" syncable="YES"/>
-        <relationship name="sessionsToTrack" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Tracks" inverseName="trackToSessions" inverseEntity="Tracks" syncable="YES"/>
+        <relationship name="speakers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Speakers" inverseName="sessions" inverseEntity="Speakers" syncable="YES"/>
+        <relationship name="track" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Tracks" inverseName="sessions" inverseEntity="Tracks" syncable="YES"/>
+        <relationship name="wordcamp" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WordCamps" inverseName="sessions" inverseEntity="WordCamps" syncable="YES"/>
     </entity>
     <entity name="Speakers" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
@@ -16,7 +18,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="post_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="wp_username" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="speakersToSession" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sessions" inverseName="sessionsToSpeakers" inverseEntity="Sessions" syncable="YES"/>
+        <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sessions" inverseName="speakers" inverseEntity="Sessions" syncable="YES"/>
     </entity>
     <entity name="Sponsors" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
@@ -24,17 +26,25 @@
         <attribute name="level" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="post_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="wordcamp" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WordCamps" inverseName="sponsors" inverseEntity="WordCamps" syncable="YES"/>
     </entity>
     <entity name="Tracks" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="term_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="trackToSessions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sessions" inverseName="sessionsToTrack" inverseEntity="Sessions" syncable="YES"/>
+        <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sessions" inverseName="track" inverseEntity="Sessions" syncable="YES"/>
+    </entity>
+    <entity name="WordCamps" syncable="YES">
+        <attribute name="site_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sessions" inverseName="wordcamp" inverseEntity="Sessions" syncable="YES"/>
+        <relationship name="sponsors" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sponsors" inverseName="wordcamp" inverseEntity="Sponsors" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Sessions" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Speakers" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Sponsors" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Tracks" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Sessions" positionX="-216" positionY="-9" width="128" height="193"/>
+        <element name="Speakers" positionX="-27" positionY="-9" width="128" height="133"/>
+        <element name="Sponsors" positionX="27" positionY="-225" width="128" height="120"/>
+        <element name="Tracks" positionX="-387" positionY="-9" width="128" height="103"/>
+        <element name="WordCamps" positionX="-236" positionY="-225" width="155" height="103"/>
     </elements>
 </model>
