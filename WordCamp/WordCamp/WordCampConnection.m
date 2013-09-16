@@ -55,8 +55,9 @@
                 }
 
                 tempWordCamp.site_id = [NSNumber numberWithInt:[[wordcamp objectForKey:@"blog_id"] intValue]];
-                tempWordCamp.title   = [wordcamp objectForKey:@"title"];
-                tempWordCamp.url     = [wordcamp objectForKey:@"link"];
+                tempWordCamp.title  = [wordcamp objectForKey:@"title"];
+                tempWordCamp.date   = [wordcamp objectForKey:@"date"];
+                tempWordCamp.url    = [wordcamp objectForKey:@"link"];
             }
         }
 

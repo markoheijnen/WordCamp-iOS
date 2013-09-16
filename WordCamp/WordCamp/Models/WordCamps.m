@@ -13,6 +13,7 @@
 
 @dynamic site_id;
 @dynamic title;
+@dynamic date;
 @dynamic url;
 @dynamic sponsors;
 @dynamic sessions;

@@ -34,6 +34,7 @@
         <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sessions" inverseName="track" inverseEntity="Sessions" syncable="YES"/>
     </entity>
     <entity name="WordCamps" representedClassName="WordCamps" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="site_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
