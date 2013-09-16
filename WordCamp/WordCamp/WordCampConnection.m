@@ -21,9 +21,9 @@
 
 +(void)sync {
     int time = [[NSUserDefaults standardUserDefaults] integerForKey:@"syncTime"];
-	//if( time == 0 || lround([[NSDate date] timeIntervalSince1970]) > time + 43200 ) {
+	if( time == 0 || lround([[NSDate date] timeIntervalSince1970]) > time + 43200 ) {
 		[self loadData];
-	//}
+	}
 }
 
 +(void)loadData {
