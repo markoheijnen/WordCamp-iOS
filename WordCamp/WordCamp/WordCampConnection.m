@@ -48,7 +48,7 @@
                     error:nil];
 
             for (NSDictionary *wordcamp in json ) {
-                WordCamps *tempWordCamp = [self getSingleObject:@"WordCamps" withUid:[[wordcamp objectForKey:@"site_id"] intValue]];
+                WordCamps *tempWordCamp = [self getSingleObject:@"WordCamps" withUid:[[wordcamp objectForKey:@"blog_id"] intValue]];
 
                 if ( ! tempWordCamp) {
                     tempWordCamp = [NSEntityDescription insertNewObjectForEntityForName:@"WordCamps" inManagedObjectContext: [(WordCampAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]];
