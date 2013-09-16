@@ -8,11 +8,19 @@
 
 #import "WordCampSideDrawer.h"
 
-@interface WordCampSideDrawer ()
+#import "WordCampAppDelegate.h"
+#import "WordCamps.h"
 
+#import "UIViewController+MMDrawerController.h"
+
+@interface WordCampSideDrawer ()
+    -(void)loadData:(NSNotification *)note;
 @end
 
 @implementation WordCampSideDrawer
+
+@synthesize wordcamps;
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,12 +34,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSManagedObjectContext * managedObjectContext = [(WordCampAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData:) name:NSManagedObjectContextObjectsDidChangeNotification object:managedObjectContext];
+    
+    [self loadData:nil];
+}
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+-(void)loadData:(NSNotification *)note {
+    NSManagedObjectContext * managedObjectContext = [(WordCampAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"WordCamps" inManagedObjectContext:managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    self.wordcamps = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    if(note) {
+        [self.tableView reloadData];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,68 +71,36 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return [wordcamps count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
+
+    WordCamps *info = [wordcamps objectAtIndex:indexPath.row];
+    cell.textLabel.text = info.title;
+    cell.detailTextLabel.text = info.date;
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    WordCamps *info = [wordcamps objectAtIndex:indexPath.row];
+
+    [[NSUserDefaults standardUserDefaults] setInteger:[info.site_id intValue] forKey:@"wordcamp"];
+    
+    [self.mm_drawerController setMaximumLeftDrawerWidth:280.0];
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
 
 @end

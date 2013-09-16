@@ -38,10 +38,17 @@
                              initWithCenterViewController:navigationController
                              leftDrawerViewController:leftSideDrawerViewController];
     [self.drawerController setRestorationIdentifier:@"MMDrawer"];
-    [self.drawerController setMaximumRightDrawerWidth:200.0];
     [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
-    [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     [self.drawerController setDrawerVisualStateBlock:[MMDrawerVisualState swingingDoorVisualStateBlock]];
+
+    if( ! [[NSUserDefaults standardUserDefaults] integerForKey:@"wordcamp"] ) {
+        [self.drawerController setMaximumLeftDrawerWidth:320.0];
+        [self.drawerController openDrawerSide:MMDrawerSideLeft animated:NO completion:NO];
+    }
+    else {
+        [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+        [self.drawerController setMaximumLeftDrawerWidth:280.0];
+    }
 
     [self.window setRootViewController:self.drawerController];
 

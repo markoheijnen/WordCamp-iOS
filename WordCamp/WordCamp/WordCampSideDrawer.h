@@ -10,4 +10,6 @@
 
 @interface WordCampSideDrawer : UITableViewController
 
+@property (nonatomic,strong) NSArray* wordcamps;
+
 @end
