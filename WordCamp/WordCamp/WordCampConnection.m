@@ -51,11 +51,10 @@
                 WordCamps *tempWordCamp = [self getSingleObject:@"WordCamps" withUid:[[wordcamp objectForKey:@"site_id"] intValue]];
 
                 if ( ! tempWordCamp) {
-                    NSLog(@"create");
                     tempWordCamp = [NSEntityDescription insertNewObjectForEntityForName:@"WordCamps" inManagedObjectContext: [(WordCampAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]];
                 }
 
-                tempWordCamp.site_id = [NSNumber numberWithInt:[[wordcamp objectForKey:@"id"] intValue]];
+                tempWordCamp.site_id = [NSNumber numberWithInt:[[wordcamp objectForKey:@"blog_id"] intValue]];
                 tempWordCamp.title   = [wordcamp objectForKey:@"title"];
                 tempWordCamp.url     = [wordcamp objectForKey:@"link"];
             }
