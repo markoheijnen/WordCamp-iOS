@@ -10,7 +10,6 @@
 		B7BA0D5EB0294B59892A125E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1385ECDA8321433DB96AFEA5 /* libPods.a */; };
 		DC551C4D17E4FAC300950A88 /* WordCampConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = DC551C4C17E4FAC300950A88 /* WordCampConnection.m */; };
 		DC551C5017E5D55B00950A88 /* WordCampSideDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = DC551C4F17E5D55B00950A88 /* WordCampSideDrawer.m */; };
-		DC551C5317E5D7A800950A88 /* WordCampMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC551C5217E5D7A800950A88 /* WordCampMainViewController.m */; };
 		DCBFB57417E61F4E0080DDDA /* WordCamps.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBFB57317E61F4E0080DDDA /* WordCamps.m */; };
 		DCBFB57717E61F4E0080DDDA /* Sponsors.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBFB57617E61F4E0080DDDA /* Sponsors.m */; };
 		DCBFB57A17E61F4E0080DDDA /* Speakers.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBFB57917E61F4E0080DDDA /* Speakers.m */; };
@@ -55,8 +54,6 @@
 		DC551C4C17E4FAC300950A88 /* WordCampConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordCampConnection.m; sourceTree = "<group>"; };
 		DC551C4E17E5D55B00950A88 /* WordCampSideDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordCampSideDrawer.h; sourceTree = "<group>"; };
 		DC551C4F17E5D55B00950A88 /* WordCampSideDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordCampSideDrawer.m; sourceTree = "<group>"; };
-		DC551C5117E5D7A800950A88 /* WordCampMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordCampMainViewController.h; sourceTree = "<group>"; };
-		DC551C5217E5D7A800950A88 /* WordCampMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordCampMainViewController.m; sourceTree = "<group>"; };
 		DCBFB57217E61F4E0080DDDA /* WordCamps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WordCamps.h; path = Models/WordCamps.h; sourceTree = "<group>"; };
 		DCBFB57317E61F4E0080DDDA /* WordCamps.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WordCamps.m; path = Models/WordCamps.m; sourceTree = "<group>"; };
 		DCBFB57517E61F4E0080DDDA /* Sponsors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sponsors.h; path = Models/Sponsors.h; sourceTree = "<group>"; };
@@ -248,8 +245,6 @@
 				DC551C4A17E4FAA400950A88 /* Connection */,
 				DCDE256417E4DDA500E028FC /* WordCampAppDelegate.h */,
 				DCDE256517E4DDA500E028FC /* WordCampAppDelegate.m */,
-				DC551C5117E5D7A800950A88 /* WordCampMainViewController.h */,
-				DC551C5217E5D7A800950A88 /* WordCampMainViewController.m */,
 				DCDE256A17E4DDA500E028FC /* Images.xcassets */,
 				DCDE256717E4DDA500E028FC /* WordCamp.xcdatamodeld */,
 				DCDE255C17E4DDA500E028FC /* Supporting Files */,
@@ -432,7 +427,6 @@
 				DCBFB57417E61F4E0080DDDA /* WordCamps.m in Sources */,
 				DCBFB58E17E82EB90080DDDA /* WordCampNewsViewController.m in Sources */,
 				DCBFB59717E82EF50080DDDA /* WordCampSponsorsViewController.m in Sources */,
-				DC551C5317E5D7A800950A88 /* WordCampMainViewController.m in Sources */,
 				DCBFB57A17E61F4E0080DDDA /* Speakers.m in Sources */,
 				DCDE256617E4DDA500E028FC /* WordCampAppDelegate.m in Sources */,
 			);

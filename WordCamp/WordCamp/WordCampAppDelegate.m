@@ -13,7 +13,7 @@
 
 #import "WordCampConnection.h"
 
-#import "WordCampMainViewController.h"
+#import "WordCampProgramViewController.h"
 #import "WordCampSideDrawer.h"
 
 @implementation WordCampAppDelegate
@@ -29,7 +29,7 @@
 
     WordCampSideDrawer * leftSideDrawerViewController = [[WordCampSideDrawer alloc] init];
     
-    WordCampMainViewController * centerViewController = [[WordCampMainViewController alloc] init];
+    WordCampProgramViewController * centerViewController = [[WordCampProgramViewController alloc] init];
     
     UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:centerViewController];
     [navigationController setRestorationIdentifier:@"MMExampleCenterNavigationControllerRestorationKey"];
@@ -53,7 +53,7 @@
     [self.window setRootViewController:self.drawerController];
 
     [WordCampConnection sync];
-    
+
     [self.window makeKeyAndVisible];
     return YES;
 }
