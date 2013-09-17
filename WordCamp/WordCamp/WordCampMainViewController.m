@@ -9,8 +9,13 @@
 #import "WordCampMainViewController.h"
 
 #import "UIViewController+MMDrawerController.h"
-
 #import "MMDrawerBarButtonItem.h"
+
+#import "WordCampProgramViewController.h"
+#import "WordCampSessionsViewController.h"
+#import "WordCampSpeakersViewController.h"
+#import "WordCampNewsViewController.h"
+#import "WordCampSponsorsViewController.h"
 
 @interface WordCampMainViewController ()
 
@@ -18,11 +23,20 @@
 
 @implementation WordCampMainViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
         // Custom initialization
+        WordCampProgramViewController * program = [[WordCampProgramViewController alloc] init];
+        WordCampSessionsViewController * sessions = [[WordCampSessionsViewController alloc] init];
+        WordCampSpeakersViewController * speakers = [[WordCampSpeakersViewController alloc] init];
+        WordCampNewsViewController * news = [[WordCampNewsViewController alloc] init];
+        WordCampSponsorsViewController * sponsors = [[WordCampSponsorsViewController alloc] init];
+        
+        NSArray *viewControllersArray = [[NSArray alloc] initWithObjects:program, sessions, speakers, news, sponsors, nil];
+        
+        [self setViewControllers:viewControllersArray];
     }
     return self;
 }
