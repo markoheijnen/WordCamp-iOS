@@ -11,14 +11,14 @@ PODS:
     - MMDrawerController/Core
   - MMDrawerController/Subclass (0.5.1):
     - MMDrawerController/Core
-  - Reachability (3.0.0)
+  - Reachability (3.1.1)
 
 DEPENDENCIES:
-  - MMDrawerController (~> 0.5.1)
-  - Reachability (~> 3.0.0)
+  - MMDrawerController (~> 0.5.0)
+  - Reachability (~> 3.1.1)
 
 SPEC CHECKSUMS:
   MMDrawerController: 3e22aec684dbee5307ff9d1e76523003a3303a2d
-  Reachability: 500bd76bf6cd8ff2c6fb715fc5f44ef6e4c024f2
+  Reachability: 2be6bc2fd2bd31d97f5db33e75e4b29c79e95883
 
 COCOAPODS: 0.24.0
